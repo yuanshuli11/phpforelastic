@@ -58,7 +58,7 @@ class Elastic
       $url = Elastic::get_url($url_data);
       $content = json_encode($content);
       $ch = curl_init ();
-      curl_setopt ( $ch, CURLOPT_URL, $url );//地址
+      curl_setopt ( $ch, CURLOPT_URL, $url );
       curl_setopt ( $ch, CURLOPT_POST, 1 );//请求方式为post
       curl_setopt ( $ch, CURLOPT_HEADER, 0 );//不打印header信息
       curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );//返回结果转成字符串
@@ -77,7 +77,7 @@ class Elastic
       $url_data[] = $id;
       $url = Elastic::get_url($url_data);
       $ch = curl_init ();
-      curl_setopt ( $ch, CURLOPT_URL, $url );//地址
+      curl_setopt ( $ch, CURLOPT_URL, $url );
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE'); //delete 请求
       curl_setopt ( $ch, CURLOPT_HEADER, 0 );//不打印header信息
       curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );//返回结果转成字符串

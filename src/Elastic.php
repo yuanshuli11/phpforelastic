@@ -3,7 +3,6 @@ namespace Phpforelastic;
  
 class Elastic
 {   
-    
     public static function search($url,$table,$word,$size=20,$from=1,$fields=false,$sort="asc")
     {   
       if(!$fields){
@@ -50,7 +49,6 @@ class Elastic
     }
     public static function add($url,$table,$type,$id,$content)
     { 
- 
       $url_data[] = $url;
       $url_data[] = $table;
       $url_data[] = $type;
@@ -73,7 +71,6 @@ class Elastic
     }
     public static function delete($url,$table,$type,$id)
     { 
- 
       $url_data[] = $url;
       $url_data[] = $table;
       $url_data[] = $type;
@@ -85,7 +82,6 @@ class Elastic
       curl_setopt ( $ch, CURLOPT_HEADER, 0 );//不打印header信息
       curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );//返回结果转成字符串
       curl_setopt ( $ch, CURLOPT_TIMEOUT,15);   //超时设置
-
       $return = curl_exec ( $ch );
       curl_close ( $ch );
       $return = json_decode($return,true);  
@@ -96,7 +92,6 @@ class Elastic
         $value = Elastic::check_param($value);
       }
       return implode("/", $url_data);
-     
     }
     private function check_param($word){
       if(substr($word, -1)=='/'){

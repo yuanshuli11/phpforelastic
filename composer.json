@@ -1,0 +1,19 @@
+{
+    "name": "yuan/phpforelastic",
+    "description": "php api for elasticsearch",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "袁树立",
+            "email": "1923244321@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Phpforelastic\\": "src/"
+        }
+    }
+}

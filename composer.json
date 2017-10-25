@@ -1,5 +1,5 @@
 {
-    "name": "yuan/phpforelastic",
+    "name": "yuansl/phpforelastic",
     "description": "php api for elasticsearch",
     "type": "library",
     "license": "MIT",

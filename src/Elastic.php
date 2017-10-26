@@ -87,13 +87,13 @@ class Elastic
       $return = json_decode($return,true);  
       print_r($return);
     }
-    private function get_url($url_data){
+    private static function get_url($url_data){
       foreach ($url_data as $key => &$value) {
         $value = Elastic::check_param($value);
       }
       return implode("/", $url_data);
     }
-    private function check_param($word){
+    private static function check_param($word){
       if(substr($word, -1)=='/'){
           return substr($word, 0,-1);
       }else{

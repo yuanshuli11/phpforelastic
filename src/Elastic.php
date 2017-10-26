@@ -66,8 +66,7 @@ class Elastic
       curl_setopt ( $ch, CURLOPT_POSTFIELDS, $content );//post传输的数据。
       $return = curl_exec ( $ch );
       curl_close ( $ch );
-      $return = json_decode($return,true);  
-      print_r($return);
+      $return = json_decode($return,true); 
     }
     public static function delete($url,$table,$type,$id)
     { 
@@ -85,7 +84,6 @@ class Elastic
       $return = curl_exec ( $ch );
       curl_close ( $ch );
       $return = json_decode($return,true);  
-      print_r($return);
     }
     private static function get_url($url_data){
       foreach ($url_data as $key => &$value) {

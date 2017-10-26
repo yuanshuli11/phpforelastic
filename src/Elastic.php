@@ -3,7 +3,7 @@ namespace Phpforelastic;
  
 class Elastic
 {   
-    public static function search($url,$table,$word,$size=20,$from=1,$fields=false,$sort="asc")
+    public static function search($url,$table,$word,$size=20,$from=1,$sort="desc",$fields=false)
     {   
       if(!$fields){
         $fields = [
@@ -45,7 +45,12 @@ class Elastic
       $return = curl_exec ( $ch );
       curl_close ( $ch );
       $return = json_decode($return,true); 
-      return json_encode($return['hits']);
+      if(isset($return['hits'])){
+        return json_encode($return['hits']);
+      }else{
+        return ;
+      }
+      
     }
     public static function add($url,$table,$type,$id,$content)
     { 

@@ -3,7 +3,7 @@ namespace Phpforelastic;
  
 class Elastic
 {   
-    public static function search($url,$table,$word,$size=20,$from=1,$sort="desc",$fields=false)
+    public static function search($url,$table,$word,$size=20,$from=0,$sort="desc",$fields=false)
     {   
       if(!$fields){
         $fields = [

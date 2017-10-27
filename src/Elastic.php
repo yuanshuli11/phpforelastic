@@ -4,7 +4,7 @@ namespace Phpforelastic;
 class Elastic
 { 
   
-  public function getDetailSearch($url,$table,$word,$size=20,$from=0,$sort="desc",$fields=false){
+  public static function getDetailSearch($url,$table,$word,$size=20,$from=0,$sort="desc",$fields=false){
     if($fields){
       if(is_string($table)){
         $tables[] = $table;

@@ -17,7 +17,12 @@ class Elastic
         if(isset($Elastic['hits'])){
           $returnArr[$table]['total'] = $Elastic['total'];
           foreach ($Elastic['hits'] as $key => $value) {
-            $returnArr[$table]['data'][] = $value['fields'];
+            foreach ($fields as $fieldskey => $fieldsvalue) {
+              if(isset($value['fields'][$fieldsvalue])){
+                  $returnArr[$table]['data'][$key][$fieldsvalue] = $value['fields'][$fieldsvalue][0];
+              }
+            }
+     
           }
         }
       }

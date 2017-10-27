@@ -2,12 +2,33 @@
 namespace Phpforelastic; 
  
 class Elastic
-{   
-    public static function search($url,$table,$word,$size=20,$from=0,$sort="desc",$fields=false)
+{ 
+  
+  public function getDetailSearch($url,$table,$word,$size=20,$from=0,$sort="desc",$fields=false){
+    if($fields){
+      if(is_string($table)){
+        $tables[] = $table;
+      }else{
+        $tables = $table;
+      }
+        $returnArr = [];
+      foreach ($tables as $key => $table) {
+        $Elastic = json_decode(Elastic::search($url,$table,$word,$size,$from,$sort,$fields),true);
+        if(isset($Elastic['hits'])){
+          $returnArr[$table]['total'] = $Elastic['total'];
+          foreach ($Elastic['hits'] as $key => $value) {
+            $returnArr[$table]['data'][] = $value['fields'];
+          }
+        }
+      }
+      return $returnArr;
+    }
+  }
+  public static function search($url,$table,$word,$size=20,$from=0,$sort="desc",$fields=false)
     {   
       if(!$fields){
         $fields = [
-            "title","content"
+            "title","content","id","images","updated_at"
           ];
       }
       $post_data = [

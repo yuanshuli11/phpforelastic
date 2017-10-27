@@ -8,5 +8,8 @@ $data = [
 'des'=>'暗室逢灯sad',
 ];
 //Elastic::add('http://192.168.3.181','yuan',"tweet",2,$data);
- echo Elastic::search('http://192.168.3.181','www',"门窗",20);
+$fields = ['title','content','id','images'];
+$table = ['ask','article'];
+// $table = "article";
+ echo Elastic::getDetailSearch('http://192.168.3.181',$table,"装修",20,0,"desc",$fields);
  //Elastic::delete('http://192.168.3.181/','twitter',"twee23t",'AV9St7UOUUgqCZdgC8DV');
